@@ -1,0 +1,23 @@
+<datasource>
+	<entry handle="InputXSLT">
+		<path>~/projects/dev/InputXSLT</path>
+	</entry>
+	<entry handle="blog.kummerlaender.eu">
+		<path>~/projects/dev/blog.kummerlaender.eu</path>
+	</entry>
+	<entry handle="SimpleParser">
+		<path>~/projects/dev/parser</path>
+	</entry>
+	<entry handle="StaticXSLT">
+		<path>~/projects/dev/StaticXSLT</path>
+	</entry>
+	<entry handle="BuildXSLT">
+		<path>~/projects/dev/BuildXSLT</path>
+	</entry>
+	<entry handle="GraphStorage">
+		<path>~/projects/dev/graphdb</path>
+	</entry>
+	<entry handle="BinaryMapping">
+		<path>~/projects/dev/BinaryMapping</path>
+	</entry>
+</datasource>

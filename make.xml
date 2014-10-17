@@ -1,0 +1,11 @@
+<task type="module">
+	<input mode="embedded">
+		<datasource>
+			<meta>
+				<source>source</source>
+				<target>target</target>
+			</meta>
+		</datasource>
+	</input>
+	<definition mode="file">[StaticXSLT.xml]</definition>
+</task>
