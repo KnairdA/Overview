@@ -7,6 +7,7 @@
 
 <xsl:include href="[utility/master.xsl]"/>
 <xsl:include href="[utility/xhtml.xsl]"/>
+<xsl:include href="[utility/date-time.xsl]"/>
 
 <xsl:variable name="meta">
 	<datasource type="main"    mode="iterate" source="04_meta/paginated_timeline.xml"   target="page"/>
@@ -20,7 +21,28 @@
 
 	<xsl:variable name="commit" select="$root/commits/entry[@handle = $repository]/commit[@hash = $hash]"/>
 
-	<xsl:apply-templates select="$commit/message/node()" mode="xhtml"/>
+	<div class="commit">
+		<h2>
+			<xsl:text>» </xsl:text>
+			<a href="">
+				<xsl:value-of select="$commit/message/h1"/>
+			</a>
+		</h2>
+		<p class="info">
+			<xsl:call-template name="format-date">
+				<xsl:with-param name="date" select="$commit/date"/>
+				<xsl:with-param name="format" select="'M x, Y'"/>
+			</xsl:call-template>
+			<xsl:text> at </xsl:text>
+			<xsl:value-of select="$commit/date/@time"/>
+			<xsl:text> | </xsl:text>
+			<xsl:value-of select="$repository"/>
+			<xsl:text> | </xsl:text>
+			<xsl:value-of select="$commit/@hash"/>
+		</p>
+
+		<xsl:apply-templates select="$commit/message/*[name() != 'h1']" mode="xhtml"/>
+	</div>
 </xsl:template>
 
 <xsl:template match="page/entry">
@@ -29,12 +51,25 @@
 	<div id="pagination">
 		<xsl:if test="@index > 0">
 			<span>
+				<a class="pagination-previous" href="/0">
+					<xsl:text>« first</xsl:text>
+				</a>
+			</span>
+
+			<span>
 				<a class="pagination-previous" href="/{@index - 1}">
 					<xsl:text>« newer</xsl:text>
 				</a>
 			</span>
 		</xsl:if>
+
 		<xsl:if test="@index &lt; @total - 1">
+			<span>
+				<a class="pagination-next" href="/{@total - 1}">
+					<xsl:text>last »</xsl:text>
+				</a>
+			</span>
+
 			<span>
 				<a class="pagination-next" href="/{@index + 1}">
 					<xsl:text>older »</xsl:text>

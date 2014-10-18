@@ -23,6 +23,20 @@
 	)/self::command/node()"/>
 </xsl:template>
 
+<xsl:template match="date" mode="commit">
+	<xsl:copy>
+		<xsl:attribute name="time">
+			<xsl:value-of select="substring(text(), 12, 5)"/>
+		</xsl:attribute>
+
+		<xsl:apply-templates select="@*|node()" mode="commit"/>
+	</xsl:copy>
+</xsl:template>
+
+<xsl:template match="date/text()" mode="commit">
+	<xsl:value-of select="substring(., 0, 11)"/>
+</xsl:template>
+
 <xsl:template match="message/text()" mode="commit">
 	<xsl:call-template name="formatter">
 		<xsl:with-param name="format">markdown</xsl:with-param>
