@@ -12,6 +12,7 @@
 <xsl:variable name="meta">
 	<datasource type="main"    mode="iterate" source="04_meta/paginated_timeline.xml"   target="page"/>
 	<datasource type="support" mode="full"    source="02_augment/formatted_commits.xml" target="commits"/>
+	<datasource type="support" mode="full"    source="00_content/meta.xml"              target="meta"/>
 	<target     mode="xpath"   value="concat($datasource/page/entry/@index, '/index.html')"/>
 </xsl:variable>
 
@@ -36,9 +37,29 @@
 			<xsl:text> at </xsl:text>
 			<xsl:value-of select="$commit/date/@time"/>
 			<xsl:text> | </xsl:text>
-			<xsl:value-of select="$repository"/>
+			<a>
+				<xsl:attribute name="href">
+					<xsl:value-of select="concat(
+						$root/meta/mirror/repository, '/',
+						$repository
+					)"/>
+				</xsl:attribute>
+
+				<xsl:value-of select="$repository"/>
+			</a>
 			<xsl:text> | </xsl:text>
-			<xsl:value-of select="$commit/@hash"/>
+			<a>
+				<xsl:attribute name="href">
+					<xsl:value-of select="concat(
+						$root/meta/mirror/repository, '/',
+						$repository,                  '/',
+						$root/meta/mirror/commit,
+						$commit/@hash
+					)"/>
+				</xsl:attribute>
+
+				<xsl:value-of select="$commit/@hash"/>
+			</a>
 		</p>
 
 		<xsl:apply-templates select="$commit/message/*[name() != 'h1']" mode="xhtml"/>

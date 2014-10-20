@@ -1,0 +1,6 @@
+<datasource>
+	<mirror>
+		<repository>http://code.kummerlaender.eu</repository>
+		<commit>commit/?id=</commit>
+	</mirror>
+</datasource>
