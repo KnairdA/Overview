@@ -13,7 +13,7 @@
 </xsl:variable>
 
 <xsl:template match="repositories">
-	<xsl:apply-templates select="entry/commit" mode="commit">
+	<xsl:apply-templates select="entry/commit[count(message/ul/li | message/ul/li/ul) &gt;= 2]" mode="commit">
 		<xsl:sort select="date" data-type="text" order="descending"/>
 	</xsl:apply-templates>
 </xsl:template>
