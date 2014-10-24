@@ -9,16 +9,15 @@
 <xsl:include href="[utility/datasource.xsl]"/>
 
 <xsl:variable name="meta">
-	<datasource type="main" mode="full" source="00_content/repositories.xml" target="repositories"/>
+	<datasource type="main"    mode="full" source="00_content/repositories.xml" target="repositories"/>
+	<datasource type="support" mode="full" source="00_content/meta.xml"         target="meta"/>
 	<target     mode="plain" value="commits.xml"/>
 </xsl:variable>
-
-<xsl:variable name="commit_count">20</xsl:variable>
 
 <xsl:template match="repositories/entry">
 	<entry handle="{@handle}">
 		<xsl:copy-of select="InputXSLT:external-command(
-			concat('./utility/git_log.sh ', path, ' ', $commit_count)
+			concat('./utility/git_log.sh ', path, ' ', $root/meta/commit_count)
 		)/self::command/commit"/>
 	</entry>
 </xsl:template>

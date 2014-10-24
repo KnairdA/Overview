@@ -1,4 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <datasource>
+	<title>CommitLog</title>
+	<url>http://localhost:8000</url>
+	<commit_count>20</commit_count>
+
 	<mirror>
 		<repository>http://code.kummerlaender.eu</repository>
 		<commit>commit/?id=</commit>

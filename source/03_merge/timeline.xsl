@@ -8,7 +8,7 @@
 <xsl:include href="[utility/reference_commit.xsl]"/>
 
 <xsl:variable name="meta">
-	<datasource type="main" mode="full" source="02_augment/formatted_commits.xml" target="repositories"/>
+	<datasource type="main" mode="full" source="02_augment/commits.xml" target="repositories"/>
 	<target     mode="plain" value="timeline.xml"/>
 </xsl:variable>
 

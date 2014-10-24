@@ -15,14 +15,14 @@
 <xsl:include href="[utility/xhtml.xsl]"/>
 
 <xsl:variable name="meta">
-	<datasource type="main"    mode="iterate" source="02_augment/formatted_commits.xml" target="repository"/>
-	<datasource type="support" mode="full"    source="00_content/meta.xml"              target="meta"/>
+	<datasource type="main"    mode="iterate" source="02_augment/commits.xml" target="repository"/>
+	<datasource type="support" mode="full"    source="00_content/meta.xml"    target="meta"/>
 	<target     mode="xpath"   value="concat($datasource/repository/entry/@handle, '.xml')"/>
 </xsl:variable>
 
 <xsl:variable name="root"   select="/datasource"/>
 <xsl:variable name="title"  select="datasource/repository/entry/@handle"/>
-<xsl:variable name="url"    select="concat('/feed/', $title, '.xml')"/>
+<xsl:variable name="url"    select="concat($root/meta/url, '/feed/', $title, '.xml')"/>
 <xsl:variable name="latest" select="repository/entry/commit[1]"/>
 
 <xsl:template match="datasource">
@@ -58,7 +58,7 @@
 			<xsl:attribute name="href">
 				<xsl:value-of select="concat(
 					$root/meta/mirror/repository, '/',
-					../@handle,                '/',
+					../@handle,                   '/',
 					$root/meta/mirror/commit,
 					@hash
 				)"/>

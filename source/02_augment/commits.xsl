@@ -10,7 +10,7 @@
 
 <xsl:variable name="meta">
 	<datasource type="main" mode="full" source="01_raw/commits.xml" target="repositories"/>
-	<target     mode="plain" value="formatted_commits.xml"/>
+	<target     mode="plain" value="commits.xml"/>
 </xsl:variable>
 
 <xsl:template name="formatter">
