@@ -18,9 +18,10 @@
 <xsl:include href="[utility/date-time.xsl]"/>
 
 <xsl:variable name="meta">
-	<datasource type="main"    mode="full" source="03_merge/timeline.xml"  target="timeline"/>
-	<datasource type="support" mode="full" source="02_augment/commits.xml" target="repositories"/>
-	<datasource type="support" mode="full" source="00_content/meta.xml"    target="meta"/>
+	<datasource type="main"    mode="full" source="03_merge/timeline.xml"       target="timeline"/>
+	<datasource type="support" mode="full" source="02_augment/commits.xml"      target="commits"/>
+	<datasource type="support" mode="full" source="00_content/repositories.xml" target="repositories"/>
+	<datasource type="support" mode="full" source="00_content/meta.xml"         target="meta"/>
 	<target     mode="plain"   value="index.html"/>
 </xsl:variable>
 
@@ -30,10 +31,14 @@
 	<xsl:param name="repository"/>
 	<xsl:param name="hash"/>
 
-	<xsl:variable name="commit" select="$root/repositories/entry[
+	<xsl:variable name="commit" select="$root/commits/entry[
 		@handle = $repository
 	]/commit[
 		@hash = $hash
+	]"/>
+
+	<xsl:variable name="project" select="$root/repositories/entry[
+		@handle = $repository
 	]"/>
 
 	<h3>
@@ -51,7 +56,9 @@
 		<xsl:text> at </xsl:text>
 			<xsl:value-of select="$commit/date/@time"/>
 		<xsl:text> | </xsl:text>
-		<xsl:value-of select="$repository"/>
+		<a href="{$project/url}">
+			<xsl:value-of select="$repository"/>
+		</a>
 		<xsl:text> | </xsl:text>
 		<a href="{$commit/link}">
 			<xsl:value-of select="$commit/@hash"/>
