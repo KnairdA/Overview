@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <datasource>
-	<title>CommitLog</title>
+	<title>kummerlaender.eu</title>
 	<url>http://localhost:8000</url>
 	<commit_count>20</commit_count>
 </datasource>

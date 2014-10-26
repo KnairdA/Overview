@@ -69,6 +69,7 @@
 			<xsl:value-of select="$url"/>
 		</id>
 		<title>
+			<xsl:text>Latest commits @ </xsl:text>
 			<xsl:value-of select="$root/meta/title"/>
 		</title>
 		<updated>
