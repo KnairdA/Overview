@@ -1,0 +1,16 @@
+body{font:1em Droid Sans,sans-serif,Verdana,Arial,FreeSans;color:#272828}
+#content{max-width:45em;margin:auto}
+h1{width:100%;border-bottom:0.2em solid #e3e8e8}
+a{text-decoration:underline;color:#272828}
+a:hover{color:black}
+h2{font-size:1.5em;color:#F80;margin:.5em 0 .5em 0}
+h2 a{text-decoration:none}
+h2 span{font-size:0.9em;text-decoration:none;color:#272828;font-weight:normal}
+h3{font-size:1.05em;font-weight:normal;margin-bottom:.2em;border-bottom:.1em solid #e3e8e8}
+h3 a{text-decoration:none}
+ul{margin:0;text-align:justify}
+ul li{list-style-type:circle}
+dt {float:left;clear:left;width:7em}
+dd {padding-bottom:0.75em}
+.info{font-size:.8em;margin-bottom:.5em;display:block}
+.info a{margin:0 .1em 0 .1em}
