@@ -13,7 +13,7 @@
 </xsl:variable>
 
 <xsl:template match="entry" mode="commit">
-	<commit hash="{id}">
+	<commit hash="{substring(id, 0, 7)}">
 		<xsl:apply-templates select="@*|node()" mode="commit"/>
 	</commit>
 </xsl:template>
