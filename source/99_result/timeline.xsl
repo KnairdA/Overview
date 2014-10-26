@@ -44,21 +44,12 @@
 			<xsl:value-of select="$hash"/>
 		</id>
 		<title>
-			<xsl:value-of select="$commit/message/h1"/>
+			<xsl:value-of select="$commit/title"/>
 		</title>
-		<link rel="alternate" title="{@hash}">
-			<xsl:attribute name="href">
-				<xsl:value-of select="concat(
-					$root/meta/mirror/repository, '/',
-					$repository,                  '/',
-					$root/meta/mirror/commit,
-					$hash
-				)"/>
-			</xsl:attribute>
-		</link>
+		<link rel="alternate" title="{$commit/title}" href="{$commit/link}"/>
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
-				<xsl:apply-templates select="$commit/message/*[name() != 'h1']" mode="xhtml"/>
+				<xsl:apply-templates select="$commit/message/*" mode="xhtml"/>
 			</div>
 		</content>
 		<updated>

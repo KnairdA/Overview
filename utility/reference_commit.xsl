@@ -20,6 +20,6 @@
 	</xsl:copy>
 </xsl:template>
 
-<xsl:template match="message | date | text()" mode="commit"/>
+<xsl:template match="title | message | date | author | link | text()" mode="commit"/>
 
 </xsl:stylesheet>

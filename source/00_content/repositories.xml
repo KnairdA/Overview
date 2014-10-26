@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <datasource>
 	<entry handle="InputXSLT">
-		<path>~/projects/dev/InputXSLT</path>
+		<feed>http://code.kummerlaender.eu/InputXSLT/atom/?h=master</feed>
 	</entry>
 	<entry handle="blog.kummerlaender.eu">
-		<path>~/projects/dev/blog.kummerlaender.eu</path>
+		<feed>http://code.kummerlaender.eu/blog.kummerlaender.eu/atom/?h=master</feed>
 	</entry>
 	<entry handle="SimpleParser">
-		<path>~/projects/dev/parser</path>
+		<feed>http://code.kummerlaender.eu/SimpleParser/atom/?h=master</feed>
 	</entry>
 	<entry handle="StaticXSLT">
-		<path>~/projects/dev/StaticXSLT</path>
+		<feed>http://code.kummerlaender.eu/StaticXSLT/atom/?h=master</feed>
 	</entry>
 	<entry handle="BuildXSLT">
-		<path>~/projects/dev/BuildXSLT</path>
+		<feed>http://code.kummerlaender.eu/BuildXSLT/atom/?h=master</feed>
 	</entry>
 	<entry handle="GraphStorage">
-		<path>~/projects/dev/graphdb</path>
+		<feed>http://code.kummerlaender.eu/GraphStorage/atom/?h=master</feed>
 	</entry>
 	<entry handle="BinaryMapping">
-		<path>~/projects/dev/BinaryMapping</path>
+		<feed>http://code.kummerlaender.eu/BinaryMapping/atom/?h=master</feed>
 	</entry>
 </datasource>

@@ -7,18 +7,18 @@
 >
 
 <xsl:include href="[utility/datasource.xsl]"/>
+<xsl:include href="[utility/remove_namespace.xsl]"/>
 
 <xsl:variable name="meta">
-	<datasource type="main"    mode="full" source="00_content/repositories.xml" target="repositories"/>
-	<datasource type="support" mode="full" source="00_content/meta.xml"         target="meta"/>
-	<target     mode="plain" value="commits.xml"/>
+	<datasource type="main"  mode="full" source="00_content/repositories.xml" target="repositories"/>
+	<target     mode="plain" value="repository_feeds.xml"/>
 </xsl:variable>
 
 <xsl:template match="repositories/entry">
 	<entry handle="{@handle}">
-		<xsl:copy-of select="InputXSLT:external-command(
-			concat('./utility/git_log.sh ', path, ' ', $root/meta/commit_count)
-		)/self::command/commit"/>
+		<xsl:apply-templates mode="remove_namespace" select="InputXSLT:external-command(
+			concat('./utility/fetch_feed.sh ', feed/text())
+		)/self::command/feed/entry"/>
 	</entry>
 </xsl:template>
 
