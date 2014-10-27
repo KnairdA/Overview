@@ -33,7 +33,7 @@
 
 <xsl:template match="content[@type = 'xhtml']" mode="article">
 	<content>
-		<xsl:apply-templates select="div/p[1]" mode="article"/>
+		<xsl:apply-templates select="div/p[1]/node()" mode="article"/>
 	</content>
 </xsl:template>
 

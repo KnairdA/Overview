@@ -70,7 +70,7 @@
 		<xsl:value-of select="$commit/author"/>
 	</span>
 
-	<xsl:apply-templates select="$commit/message/*" mode="xhtml"/>
+	<xsl:apply-templates select="$commit/message/node()" mode="xhtml"/>
 </xsl:template>
 
 <xsl:template match="timeline/commit">
@@ -99,7 +99,14 @@
 		<xsl:value-of select="author"/>
 	</span>
 
-	<xsl:apply-templates select="content/*" mode="xhtml"/>
+	<p>
+		<xsl:apply-templates select="content/node()" mode="xhtml"/>
+		<xsl:text> </xsl:text>
+
+		<a href="{link}">
+			<xsl:text>↪</xsl:text>
+		</a>
+	</p>
 </xsl:template>
 
 <xsl:template match="datasource">
@@ -119,19 +126,42 @@
 			<xsl:value-of select="$root/meta/title"/>
 		</h1>
 
-		<h2>
-			<a href="http://blog.kummerlaender.eu">
-				<xsl:text>Latest articles</xsl:text>
-			</a>
-		</h2>
+		<div class="menuhead">
+			<h2>
+				<a href="http://blog.kummerlaender.eu">
+					<xsl:text>Latest articles</xsl:text>
+				</a>
+			</h2>
+			<ul>
+				<li>
+					<a href="http://blog.kummerlaender.eu/archive">Archive</a>
+				</li>
+				<li>
+					<a href="http://blog.kummerlaender.eu/atom.xml">Feed</a>
+				</li>
+			</ul>
+		</div>
 
 		<xsl:apply-templates select="articles/entry"/>
 
-		<h2>
-			<a href="{$root/meta/url}/timeline.xml">
-				<xsl:text>Latest commits</xsl:text>
-			</a>
-		</h2>
+		<div class="menuhead">
+			<h2>
+				<a href="http://code.kummerlaender.eu">
+					<xsl:text>Latest commits</xsl:text>
+				</a>
+			</h2>
+			<ul>
+				<li>
+					<a href="https://github.com/KnairdA">GitHub</a>
+				</li>
+				<li>
+					<a href="http://blog.kummerlaender.eu/category/projects">Projects</a>
+				</li>
+				<li>
+					<a href="{$root/meta/url}/timeline.xml">Feed</a>
+				</li>
+			</ul>
+		</div>
 
 		<xsl:apply-templates select="timeline/commit[position() &lt;= 5]"/>
 	</div>
