@@ -31,6 +31,22 @@
 	</link>
 </xsl:template>
 
+<xsl:template match="@href" mode="article">
+	<xsl:choose>
+		<xsl:when test="substring(., 0, 2) = '/'">
+			<xsl:attribute name="href">
+				<xsl:text>http://blog.kummerlaender.eu</xsl:text>
+				<xsl:value-of select="."/>
+			</xsl:attribute>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:attribute name="href">
+				<xsl:value-of select="."/>
+			</xsl:attribute>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
 <xsl:template match="content[@type = 'xhtml']" mode="article">
 	<content>
 		<xsl:apply-templates select="div/p[1]/node()" mode="article"/>
