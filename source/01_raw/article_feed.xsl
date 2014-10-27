@@ -17,7 +17,7 @@
 <xsl:template match="meta">
 	<xsl:apply-templates mode="remove_namespace" select="InputXSLT:external-command(
 		'curl http://blog.kummerlaender.eu/atom.xml'
-	)/self::command/feed/entry[position() &lt;= $root/meta/article_count]"/>
+	)/self::command/feed/entry[position() &lt;= $root/meta/overview/article_count]"/>
 </xsl:template>
 
 </xsl:stylesheet>

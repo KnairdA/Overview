@@ -79,7 +79,7 @@
 			<xsl:text>:00+02:00</xsl:text>
 		</updated>
 
-		<xsl:apply-templates select="timeline/commit[position() &lt;= $root/meta/commit_count]"/>
+		<xsl:apply-templates select="timeline/commit[position() &lt;= $root/meta/timeline/commit_count]"/>
 	</feed>
 </xsl:template>
 

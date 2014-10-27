@@ -111,72 +111,75 @@
 
 <xsl:template match="datasource">
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
-	<title>
-		<xsl:value-of select="$root/meta/title"/>
-	</title>
+		<title>
+			<xsl:value-of select="$root/meta/title"/>
+		</title>
 
-	<link rel="stylesheet" type="text/css" href="/main.css"/>
-</head>
-<body>
-	<div id="content">
-		<div class="large menuhead">
-			<h1>
-				<xsl:value-of select="$root/meta/title"/>
-			</h1>
-			<ul>
-				<li>
-					<a href="http://blog.kummerlaender.eu">blog</a>
-				</li>
-				<li>
-					<a href="http://code.kummerlaender.eu">code</a>
-				</li>
-			</ul>
+		<link rel="stylesheet" type="text/css" href="/main.css"/>
+	</head>
+	<body>
+		<div id="content">
+			<div class="large menuhead">
+				<h1>
+					<xsl:value-of select="$root/meta/title"/>
+				</h1>
+				<ul>
+					<li>
+						<a href="http://blog.kummerlaender.eu">blog</a>
+					</li>
+					<li>
+						<a href="http://code.kummerlaender.eu">code</a>
+					</li>
+					<li>
+						<a href="http://key.kummerlaender.eu">key</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="normal menuhead">
+				<h2>
+					<a href="http://blog.kummerlaender.eu">
+						<xsl:text>Latest articles</xsl:text>
+					</a>
+				</h2>
+				<ul>
+					<li>
+						<a href="http://blog.kummerlaender.eu/archive">Archive</a>
+					</li>
+					<li>
+						<a href="http://blog.kummerlaender.eu/atom.xml">Feed</a>
+					</li>
+				</ul>
+			</div>
+
+			<xsl:apply-templates select="articles/entry"/>
+
+			<div class="normal menuhead">
+				<h2>
+					<a href="http://code.kummerlaender.eu">
+						<xsl:text>Latest commits</xsl:text>
+					</a>
+				</h2>
+				<ul>
+					<li>
+						<a href="https://github.com/KnairdA">GitHub</a>
+					</li>
+					<li>
+						<a href="http://blog.kummerlaender.eu/category/projects">Projects</a>
+					</li>
+					<li>
+						<a href="{$root/meta/url}/timeline.xml">Feed</a>
+					</li>
+				</ul>
+			</div>
+
+			<xsl:apply-templates select="timeline/commit[position() &lt;= $root/meta/overview/commit_count]"/>
 		</div>
-
-		<div class="normal menuhead">
-			<h2>
-				<a href="http://blog.kummerlaender.eu">
-					<xsl:text>Latest articles</xsl:text>
-				</a>
-			</h2>
-			<ul>
-				<li>
-					<a href="http://blog.kummerlaender.eu/archive">Archive</a>
-				</li>
-				<li>
-					<a href="http://blog.kummerlaender.eu/atom.xml">Feed</a>
-				</li>
-			</ul>
-		</div>
-
-		<xsl:apply-templates select="articles/entry"/>
-
-		<div class="normal menuhead">
-			<h2>
-				<a href="http://code.kummerlaender.eu">
-					<xsl:text>Latest commits</xsl:text>
-				</a>
-			</h2>
-			<ul>
-				<li>
-					<a href="https://github.com/KnairdA">GitHub</a>
-				</li>
-				<li>
-					<a href="http://blog.kummerlaender.eu/category/projects">Projects</a>
-				</li>
-				<li>
-					<a href="{$root/meta/url}/timeline.xml">Feed</a>
-				</li>
-			</ul>
-		</div>
-
-		<xsl:apply-templates select="timeline/commit[position() &lt;= 5]"/>
-	</div>
-</body>
+	</body>
 </html>
 </xsl:template>
 
