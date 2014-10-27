@@ -112,21 +112,32 @@
 <xsl:template match="datasource">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 	<title>
 		<xsl:value-of select="$root/meta/title"/>
 	</title>
 
-	<link rel="stylesheet" type="text/css" href="/main.css" />
+	<link rel="stylesheet" type="text/css" href="/main.css"/>
 </head>
 <body>
 	<div id="content">
-		<h1>
-			<xsl:value-of select="$root/meta/title"/>
-		</h1>
+		<div class="large menuhead">
+			<h1>
+				<xsl:value-of select="$root/meta/title"/>
+			</h1>
+			<ul>
+				<li>
+					<a href="http://blog.kummerlaender.eu">blog</a>
+				</li>
+				<li>
+					<a href="http://code.kummerlaender.eu">code</a>
+				</li>
+			</ul>
+		</div>
 
-		<div class="menuhead">
+		<div class="normal menuhead">
 			<h2>
 				<a href="http://blog.kummerlaender.eu">
 					<xsl:text>Latest articles</xsl:text>
@@ -144,7 +155,7 @@
 
 		<xsl:apply-templates select="articles/entry"/>
 
-		<div class="menuhead">
+		<div class="normal menuhead">
 			<h2>
 				<a href="http://code.kummerlaender.eu">
 					<xsl:text>Latest commits</xsl:text>

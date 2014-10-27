@@ -1,23 +1,23 @@
-body{font:1em Droid Sans,sans-serif,Verdana,Arial,FreeSans;color:#272828}
+body{font:1em Droid Sans,Verdana,Arial,sans-serif,FreeSans;color:#272828}
 #content{max-width:45em;margin:auto}
 a{text-decoration:underline;color:#272828}
 a:hover{color:black}
-h1{margin:.5em 0;border-bottom:.2em solid #e3e8e8}
-h2{margin:0;font-size:1.3em;color:#272828;font-weight:bold}
-h2 a{text-decoration:none}
+h1, h2{margin:0;color:#272828;font-weight:bold}
+h1 a, h2 a{text-decoration:none}
 h3{font-size:1.2em;color:#F80;font-weight:bold;margin-bottom:.2em;border-bottom:.1em solid #e3e8e8}
 h3 span{font-size:0.9em;color:#272828;font-weight:normal}
 h3 a{text-decoration:none}
 p{margin:0 0 .5em 0;text-align:justify}
 ul{margin:0;text-align:justify}
 ul li{list-style-type:circle}
-dt {float:left;clear:left;width:7em}
-dd {padding-bottom:0.75em}
 .info{font-size:.8em;margin-bottom:.5em;display:block}
 .info a{margin:0 .1em 0 .1em}
-.menuhead{border-bottom:0.2em solid #e3e8e8;overflow:hidden;padding-top:1.5em}
-.menuhead h2{float:left}
+.large{font-size:1.8em}
+.normal{font-size:1.2em}
+.menuhead{border-bottom:0.2em solid #e3e8e8;overflow:hidden;padding:1.5em 0 .2em}
+.menuhead h1{float:left;font-size:1em}
+.menuhead h2{float:left;font-size:1em}
 .menuhead ul {float:right}
-.menuhead ul li{float:left;list-style-type:none;padding:0 .2em}
+.menuhead ul li{font-size:.9em;float:left;list-style-type:none;padding:0 0 0 .2em}
 .menuhead ul li a{text-decoration:none;color:#272828;background:#e3e8e8;border-radius:.3em;padding:.2em}
 .menuhead ul li a:hover{text-decoration:underline}
