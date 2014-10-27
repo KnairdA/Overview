@@ -3,4 +3,5 @@
 	<title>kummerlaender.eu</title>
 	<url>http://localhost:8000</url>
 	<commit_count>20</commit_count>
+	<article_count>3</article_count>
 </datasource>

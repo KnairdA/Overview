@@ -18,10 +18,11 @@
 <xsl:include href="[utility/date-time.xsl]"/>
 
 <xsl:variable name="meta">
-	<datasource type="main"    mode="full" source="03_merge/timeline.xml"       target="timeline"/>
+	<datasource type="main"    mode="full" source="00_content/meta.xml"         target="meta"/>
+	<datasource type="support" mode="full" source="02_augment/articles.xml"     target="articles"/>
+	<datasource type="support" mode="full" source="03_merge/timeline.xml"       target="timeline"/>
 	<datasource type="support" mode="full" source="02_augment/commits.xml"      target="commits"/>
 	<datasource type="support" mode="full" source="00_content/repositories.xml" target="repositories"/>
-	<datasource type="support" mode="full" source="00_content/meta.xml"         target="meta"/>
 	<target     mode="plain"   value="index.html"/>
 </xsl:variable>
 
@@ -43,9 +44,11 @@
 
 	<h3>
 		<xsl:text>» </xsl:text>
-		<a href="{$commit/link}">
-			<xsl:value-of select="$commit/title"/>
-		</a>
+		<span>
+			<a href="{$commit/link}">
+				<xsl:value-of select="$commit/title"/>
+			</a>
+		</span>
 	</h3>
 
 	<span class="info">
@@ -63,6 +66,8 @@
 		<a href="{$commit/link}">
 			<xsl:value-of select="$commit/@hash"/>
 		</a>
+		<xsl:text> | </xsl:text>
+		<xsl:value-of select="$commit/author"/>
 	</span>
 
 	<xsl:apply-templates select="$commit/message/*" mode="xhtml"/>
@@ -73,6 +78,28 @@
 		<xsl:with-param name="repository" select="@repository"/>
 		<xsl:with-param name="hash"       select="@hash"/>
 	</xsl:call-template>
+</xsl:template>
+
+<xsl:template match="articles/entry">
+	<h3>
+		<xsl:text>» </xsl:text>
+		<span>
+			<a href="{link}">
+				<xsl:value-of select="title"/>
+			</a>
+		</span>
+	</h3>
+
+	<span class="info">
+		<xsl:call-template name="format-date">
+			<xsl:with-param name="date" select="date"/>
+			<xsl:with-param name="format" select="'M x, Y'"/>
+		</xsl:call-template>
+		<xsl:text> | </xsl:text>
+		<xsl:value-of select="author"/>
+	</span>
+
+	<xsl:apply-templates select="content/*" mode="xhtml"/>
 </xsl:template>
 
 <xsl:template match="datasource">
@@ -92,11 +119,18 @@
 			<xsl:value-of select="$root/meta/title"/>
 		</h1>
 
-		<h2>» <span>
-				<a href="{$root/meta/url}/timeline.xml">
-					<xsl:text>Latest commits</xsl:text>
-				</a>
-			</span>
+		<h2>
+			<a href="http://blog.kummerlaender.eu">
+				<xsl:text>Latest articles</xsl:text>
+			</a>
+		</h2>
+
+		<xsl:apply-templates select="articles/entry"/>
+
+		<h2>
+			<a href="{$root/meta/url}/timeline.xml">
+				<xsl:text>Latest commits</xsl:text>
+			</a>
 		</h2>
 
 		<xsl:apply-templates select="timeline/commit[position() &lt;= 5]"/>

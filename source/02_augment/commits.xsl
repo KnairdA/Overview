@@ -63,7 +63,7 @@
 
 <xsl:template match="@* | node()" mode="commit">
 	<xsl:copy>
-		<xsl:apply-templates select="@*|node()" mode="commit"/>
+		<xsl:apply-templates select="@* | node()" mode="commit"/>
 	</xsl:copy>
 </xsl:template>
 
