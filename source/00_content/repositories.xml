@@ -28,4 +28,16 @@
 		<feed>http://code.kummerlaender.eu/BinaryMapping/atom/?h=master</feed>
 		<url>http://blog.kummerlaender.eu/page/binary_mapping/</url>
 	</entry>
+	<entry handle="CodepointIterator">
+		<feed>http://code.kummerlaender.eu/CodepointIterator/atom/?h=master</feed>
+		<url>http://blog.kummerlaender.eu/page/codepoint_iterator/</url>
+	</entry>
+	<entry handle="Dotfiles">
+		<feed>http://code.kummerlaender.eu/Dotfiles/atom/?h=master</feed>
+		<url>http://blog.kummerlaender.eu/page/dotfiles/</url>
+	</entry>
+	<entry handle="Trie">
+		<feed>http://code.kummerlaender.eu/Trie/atom/?h=master</feed>
+		<url>http://blog.kummerlaender.eu/page/trie/</url>
+	</entry>
 </datasource>
