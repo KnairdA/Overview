@@ -41,23 +41,28 @@
 
 	<entry xmlns="http://www.w3.org/2005/Atom">
 		<id>
-			<xsl:value-of select="$hash"/>
+			<xsl:value-of select="$commit/link"/>
 		</id>
 		<title>
 			<xsl:value-of select="$commit/title"/>
 		</title>
 		<link rel="alternate" title="{$commit/title}" href="{$commit/link}"/>
-		<content type="xhtml">
-			<div xmlns="http://www.w3.org/1999/xhtml">
-				<xsl:apply-templates select="$commit/message/*" mode="xhtml"/>
-			</div>
-		</content>
+		<author>
+			<name>
+				<xsl:value-of select="$commit/author"/>
+			</name>
+		</author>
 		<updated>
 			<xsl:value-of select="$commit/date"/>
 			<xsl:text>T</xsl:text>
 			<xsl:value-of select="$commit/date/@time"/>
 			<xsl:text>:00+02:00</xsl:text>
 		</updated>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<xsl:apply-templates select="$commit/message/*" mode="xhtml"/>
+			</div>
+		</content>
 	</entry>
 </xsl:template>
 
