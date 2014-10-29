@@ -2,6 +2,7 @@
 <xsl:stylesheet
 	version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:atom="http://www.w3.org/2005/Atom"
 	xmlns:InputXSLT="function.inputxslt.application"
 	exclude-result-prefixes="InputXSLT"
 >
@@ -18,7 +19,7 @@
 	<entry handle="{@handle}">
 		<xsl:apply-templates mode="remove_namespace" select="InputXSLT:external-command(
 			concat('./utility/fetch_feed.sh ', feed/text())
-		)/self::command/feed/entry"/>
+		)/self::command/atom:feed/atom:entry"/>
 	</entry>
 </xsl:template>
 
