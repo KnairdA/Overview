@@ -10,6 +10,7 @@ h3 a{text-decoration:none}
 p{margin:0 0 .5em 0;text-align:justify}
 ul{margin:0;text-align:justify}
 ul li{list-style-type:circle}
+code{margin:0 .1em;padding:0 .5em;border:.1em solid #e3e8e8;background-color:#f8f8f8;border-radius:.3em}
 .info{font-size:.8em;margin-bottom:.5em;display:block}
 .info a{margin:0 .1em 0 .1em}
 .large{font-size:1.8em}
