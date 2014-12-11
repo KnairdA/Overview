@@ -29,38 +29,29 @@
 	@hash   = $root/timeline/commit[1]/@hash
 ]"/>
 
-<xsl:template name="get_commit">
-	<xsl:param name="repository"/>
-	<xsl:param name="hash"/>
-
-	<xsl:variable name="commit" select="$root/repositories/entry[
-		@handle = $repository
-	]/commit[
-		@hash = $hash
-	]"/>
-
+<xsl:template match="repositories/entry/commit">
 	<entry xmlns="http://www.w3.org/2005/Atom">
 		<id>
-			<xsl:value-of select="$commit/link"/>
+			<xsl:value-of select="link"/>
 		</id>
 		<title>
-			<xsl:value-of select="$commit/title"/>
+			<xsl:value-of select="title"/>
 		</title>
-		<link rel="alternate" title="{$commit/title}" href="{$commit/link}"/>
+		<link rel="alternate" title="{title}" href="{link}"/>
 		<author>
 			<name>
-				<xsl:value-of select="$commit/author"/>
+				<xsl:value-of select="author"/>
 			</name>
 		</author>
 		<updated>
-			<xsl:value-of select="$commit/date"/>
+			<xsl:value-of select="date"/>
 			<xsl:text>T</xsl:text>
-			<xsl:value-of select="$commit/date/@time"/>
+			<xsl:value-of select="date/@time"/>
 			<xsl:text>:00+02:00</xsl:text>
 		</updated>
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
-				<xsl:apply-templates select="$commit/message/*" mode="xhtml"/>
+				<xsl:apply-templates select="message/*" mode="xhtml"/>
 			</div>
 		</content>
 	</entry>
@@ -89,10 +80,14 @@
 </xsl:template>
 
 <xsl:template match="timeline/commit">
-	<xsl:call-template name="get_commit">
-		<xsl:with-param name="repository" select="@repository"/>
-		<xsl:with-param name="hash"       select="@hash"/>
-	</xsl:call-template>
+	<xsl:variable name="repository" select="@repository"/>
+	<xsl:variable name="hash"       select="@hash"/>
+
+	<xsl:apply-templates select="$root/repositories/entry[
+		@handle = $repository
+	]/commit[
+		@hash = $hash
+	]"/>
 </xsl:template>
 
 </xsl:stylesheet>
