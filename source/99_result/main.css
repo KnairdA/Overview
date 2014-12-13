@@ -18,7 +18,8 @@ code{margin:0 .1em;padding:0 .5em;border:.1em solid #e3e8e8;background-color:#f8
 .menuhead{border-bottom:0.2em solid #e3e8e8;overflow:hidden;padding:1.5em 0 .2em}
 .menuhead h1{float:left;font-size:1em}
 .menuhead h2{float:left;font-size:1em}
-.menuhead ul {float:right}
+.menuhead ul {float:right;padding:0}
 .menuhead ul li{font-size:.9em;float:left;list-style-type:none;padding:0 0 0 .2em}
 .menuhead ul li a{text-decoration:none;color:#272828;background:#e3e8e8;border-radius:.3em;padding:.2em}
 .menuhead ul li a:hover{text-decoration:underline}
+@media screen and (max-width:45.5em){.menuhead:nth-of-type(1){padding:.2em 0 .2em}}
