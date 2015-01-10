@@ -36,4 +36,8 @@
 		<feed>http://code.kummerlaender.eu/Trie/atom/?h=master</feed>
 		<url>http://blog.kummerlaender.eu/page/trie/</url>
 	</entry>
+	<entry handle="ConstList">
+		<feed>http://code.kummerlaender.eu/ConstList/atom/?h=master</feed>
+		<url>http://blog.kummerlaender.eu/page/const_list/</url>
+	</entry>
 </datasource>
