@@ -40,4 +40,8 @@
 		<feed>http://code.kummerlaender.eu/ConstList/atom/?h=master</feed>
 		<url>http://blog.kummerlaender.eu/page/const_list/</url>
 	</entry>
+	<entry handle="TypeAsValue">
+		<feed>http://code.kummerlaender.eu/TypeAsValue/atom/?h=master</feed>
+		<url>http://blog.kummerlaender.eu/article/a_look_at_compile_time_computation_in_cpp</url>
+	</entry>
 </datasource>
