@@ -44,4 +44,8 @@
 		<feed>http://code.kummerlaender.eu/TypeAsValue/atom/?h=master</feed>
 		<url>http://blog.kummerlaender.eu/article/a_look_at_compile_time_computation_in_cpp</url>
 	</entry>
+	<entry handle="MetaTerm">
+		<feed>http://code.kummerlaender.eu/MetaTerm/atom/?h=master</feed>
+		<url>http://blog.kummerlaender.eu/page/meta_term/</url>
+	</entry>
 </datasource>
