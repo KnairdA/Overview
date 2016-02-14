@@ -3,10 +3,10 @@
 	<title>kummerlaender.eu</title>
 	<url>http://localhost:8000</url>
 	<timeline>
-		<commit_count>20</commit_count>
+		<commit_count>32</commit_count>
 	</timeline>
 	<overview>
 		<article_count>3</article_count>
-		<commit_count>9</commit_count>
+		<commit_count>16</commit_count>
 	</overview>
 </datasource>
