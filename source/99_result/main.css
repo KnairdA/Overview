@@ -10,6 +10,7 @@ p{margin:0 0 .5em 0;text-align:justify;line-height:1.75em}
 ul{margin:0;overflow:hidden}
 ul li{list-style-type:circle;line-height:1.5em}
 code{margin:0 .1em;padding:0 .5em;border:.1em solid #e3e8e8;background-color:#f8f8f8;border-radius:.3em}
+pre{padding:1em;border-radius:.75em;color:#f8f8f2;background:#272822;white-space:pre-wrap}
 #content{max-width:45em;margin:auto}
 .info{font-size:.8em;margin-bottom:.5em;display:block}
 .info a{margin:0 .1em 0 .1em}

@@ -56,7 +56,6 @@
 
 <xsl:template match="content[@type = 'text']/text()" mode="commit">
 	<xsl:call-template name="formatter">
-		<xsl:with-param name="format">markdown</xsl:with-param>
 		<xsl:with-param name="source" select="."/>
 	</xsl:call-template>
 </xsl:template>
