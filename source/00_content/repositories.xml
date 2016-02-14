@@ -20,26 +20,6 @@
 		<feed>http://code.kummerlaender.eu/BuildXSLT/atom/?h=master</feed>
 		<url>http://blog.kummerlaender.eu/page/build_xslt/</url>
 	</entry>
-	<entry handle="GraphStorage">
-		<feed>http://code.kummerlaender.eu/GraphStorage/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/graph_storage/</url>
-	</entry>
-	<entry handle="BinaryMapping">
-		<feed>http://code.kummerlaender.eu/BinaryMapping/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/binary_mapping/</url>
-	</entry>
-	<entry handle="CodepointIterator">
-		<feed>http://code.kummerlaender.eu/CodepointIterator/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/codepoint_iterator/</url>
-	</entry>
-	<entry handle="Trie">
-		<feed>http://code.kummerlaender.eu/Trie/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/trie/</url>
-	</entry>
-	<entry handle="ConstList">
-		<feed>http://code.kummerlaender.eu/ConstList/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/const_list/</url>
-	</entry>
 	<entry handle="TypeAsValue">
 		<feed>http://code.kummerlaender.eu/TypeAsValue/atom/?h=master</feed>
 		<url>http://blog.kummerlaender.eu/page/type_as_value/</url>
@@ -47,5 +27,9 @@
 	<entry handle="MetaTerm">
 		<feed>http://code.kummerlaender.eu/MetaTerm/atom/?h=master</feed>
 		<url>http://blog.kummerlaender.eu/page/meta_term/</url>
+	</entry>
+	<entry handle="change">
+		<feed>http://code.kummerlaender.eu/change/atom/?h=master</feed>
+		<url>http://code.kummerlaender.eu/change/</url>
 	</entry>
 </datasource>
