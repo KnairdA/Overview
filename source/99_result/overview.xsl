@@ -142,6 +142,13 @@
 				</ul>
 			</div>
 
+			<div id="introduction">
+				<img src="http://static.kummerlaender.eu/media/me_in_ireland.jpg"/>
+				<p>
+					<span class="greeting">Hi there!</span> My name is Adrian Kummerländer and I am a software developer currently studying mathematics in Karlsruhe. On these pages you will find <a href="http://blog.kummerlaender.eu">blog articles</a> covering amongst other topics some of my experiences in software development, open source and self hosting as well as <a href="http://code.kummerlaender.eu">repositories</a> and information on some of my personal <a href="http://blog.kummerlaender.eu/category/projects">projects</a>. If you have any comments or questions feel free to <a href="http://blog.kummerlaender.eu/page/contact">reach out</a>. I hope you will find something here worth your time.
+				</p>
+			</div>
+
 			<div class="normal menuhead">
 				<h2>
 					<a href="http://blog.kummerlaender.eu">
