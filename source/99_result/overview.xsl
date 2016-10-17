@@ -131,36 +131,36 @@
 				</h1>
 				<ul>
 					<li>
-						<a href="http://blog.kummerlaender.eu">blog</a>
+						<a href="https://blog.kummerlaender.eu">blog</a>
 					</li>
 					<li>
-						<a href="http://code.kummerlaender.eu">code</a>
+						<a href="https://code.kummerlaender.eu">code</a>
 					</li>
 					<li>
-						<a href="http://key.kummerlaender.eu">key</a>
+						<a href="https://key.kummerlaender.eu">key</a>
 					</li>
 				</ul>
 			</div>
 
 			<div id="introduction">
-				<img src="http://static.kummerlaender.eu/media/me_in_ireland.jpg"/>
+				<img src="https://static.kummerlaender.eu/media/me_in_ireland.jpg"/>
 				<p>
-					<span class="greeting">Hi there!</span> My name is Adrian Kummerländer and I am a software developer currently studying mathematics in Karlsruhe. On these pages you will find <a href="http://blog.kummerlaender.eu">blog articles</a> covering amongst other topics some of my experiences in software development, open source and self hosting as well as <a href="http://code.kummerlaender.eu">repositories</a> and information on some of my personal <a href="http://blog.kummerlaender.eu/category/projects">projects</a>. If you have any comments or questions feel free to <a href="http://blog.kummerlaender.eu/page/contact">reach out</a>. I hope you will find something here worth your time.
+					<span class="greeting">Hi there!</span> My name is Adrian Kummerländer and I am a software developer currently studying mathematics in Karlsruhe. On these pages you will find <a href="https://blog.kummerlaender.eu">blog articles</a> covering amongst other topics some of my experiences in software development, open source and self hosting as well as <a href="https://code.kummerlaender.eu">repositories</a> and information on some of my personal <a href="https://blog.kummerlaender.eu/category/projects">projects</a>. If you have any comments or questions feel free to <a href="https://blog.kummerlaender.eu/page/contact">reach out</a>. I hope you will find something here worth your time.
 				</p>
 			</div>
 
 			<div class="normal menuhead">
 				<h2>
-					<a href="http://blog.kummerlaender.eu">
+					<a href="https://blog.kummerlaender.eu">
 						<xsl:text>Latest articles</xsl:text>
 					</a>
 				</h2>
 				<ul>
 					<li>
-						<a href="http://blog.kummerlaender.eu/archive">Archive</a>
+						<a href="https://blog.kummerlaender.eu/archive">Archive</a>
 					</li>
 					<li>
-						<a href="http://blog.kummerlaender.eu/atom.xml">Feed</a>
+						<a href="https://blog.kummerlaender.eu/atom.xml">Feed</a>
 					</li>
 				</ul>
 			</div>
@@ -169,7 +169,7 @@
 
 			<div class="normal menuhead">
 				<h2>
-					<a href="http://code.kummerlaender.eu">
+					<a href="https://code.kummerlaender.eu">
 						<xsl:text>Latest commits</xsl:text>
 					</a>
 				</h2>
@@ -178,7 +178,7 @@
 						<a href="https://github.com/KnairdA">GitHub</a>
 					</li>
 					<li>
-						<a href="http://blog.kummerlaender.eu/category/projects">Projects</a>
+						<a href="https://blog.kummerlaender.eu/category/projects">Projects</a>
 					</li>
 					<li>
 						<a href="{$root/meta/url}/timeline.xml">Feed</a>
