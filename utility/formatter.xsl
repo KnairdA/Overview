@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet
 	version="1.0"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xalan="http://xml.apache.org/xalan"
 	xmlns:InputXSLT="function.inputxslt.application"
@@ -17,7 +18,7 @@
 	)/self::command/node()"/>
 </xsl:template>
 
-<xsl:template name="highlighter">
+<xsl:template name="code_highlighter">
 	<xsl:param name="source"/>
 	<xsl:param name="language"/>
 
@@ -43,12 +44,12 @@
 </xsl:template>
 
 <xsl:template match="pre" mode="embellish">
-	<xsl:call-template name="highlighter">
+	<xsl:call-template name="code_highlighter">
 		<xsl:with-param name="source" select="code/text()"/>
 		<xsl:with-param name="language">
 			<xsl:choose>
-				<xsl:when test="code/@class">
-					<xsl:value-of select="substring(code/@class, 10, string-length(code/@class))"/>
+				<xsl:when test="@class">
+					<xsl:value-of select="@class"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:text>txt</xsl:text>
@@ -63,7 +64,7 @@
 
 	<xsl:variable name="content">
 		<xsl:call-template name="plain_formatter">
-			<xsl:with-param name="format">kramdown</xsl:with-param>
+			<xsl:with-param name="format">pandoc -f markdown -t html --no-highlight</xsl:with-param>
 			<xsl:with-param name="source" select="$source"/>
 		</xsl:call-template>
 	</xsl:variable>
