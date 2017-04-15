@@ -2,7 +2,7 @@
 <datasource>
 	<entry handle="InputXSLT">
 		<feed>http://code.kummerlaender.eu/InputXSLT/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/input_xslt/</url>
+		<url>http://tree.kummerlaender.eu/projects/xslt/input_xslt/</url>
 	</entry>
 	<entry handle="blog.kummerlaender.eu">
 		<feed>http://code.kummerlaender.eu/blog.kummerlaender.eu/atom/?h=master</feed>
@@ -10,26 +10,30 @@
 	</entry>
 	<entry handle="SimpleParser">
 		<feed>http://code.kummerlaender.eu/SimpleParser/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/simple_parser/</url>
+		<url>http://tree.kummerlaender.eu/projects/math/simple_parser/</url>
 	</entry>
 	<entry handle="StaticXSLT">
 		<feed>http://code.kummerlaender.eu/StaticXSLT/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/static_xslt/</url>
+		<url>http://tree.kummerlaender.eu/projects/xslt/static_xslt/</url>
 	</entry>
 	<entry handle="BuildXSLT">
 		<feed>http://code.kummerlaender.eu/BuildXSLT/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/build_xslt/</url>
+		<url>http://tree.kummerlaender.eu/projects/xslt/build_xslt/</url>
 	</entry>
 	<entry handle="TypeAsValue">
 		<feed>http://code.kummerlaender.eu/TypeAsValue/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/type_as_value/</url>
+		<url>http://tree.kummerlaender.eu/projects/type_as_value/</url>
 	</entry>
 	<entry handle="MetaTerm">
 		<feed>http://code.kummerlaender.eu/MetaTerm/atom/?h=master</feed>
-		<url>http://blog.kummerlaender.eu/page/meta_term/</url>
+		<url>http://tree.kummerlaender.eu/projects/meta_term/</url>
 	</entry>
 	<entry handle="change">
 		<feed>http://code.kummerlaender.eu/change/atom/?h=master</feed>
-		<url>http://code.kummerlaender.eu/change/</url>
+		<url>http://tree.kummerlaender.eu/projects/change/</url>
+	</entry>
+	<entry handle="slang">
+		<feed>http://code.kummerlaender.eu/slang/atom/?h=master</feed>
+		<url>http://code.kummerlaender.eu/slang/</url>
 	</entry>
 </datasource>
