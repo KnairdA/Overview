@@ -103,7 +103,7 @@
 		<xsl:apply-templates select="content/node()" mode="xhtml"/>
 		<xsl:text> </xsl:text>
 
-		<a href="{link}">
+		<a class="more" href="{link}">
 			<xsl:text>↪</xsl:text>
 		</a>
 	</p>
