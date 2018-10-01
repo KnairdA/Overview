@@ -4,8 +4,11 @@ let
   pkgs    = import <nixpkgs> { inherit system; };
   mypkgs  = import (fetchTarball "https://pkgs.kummerlaender.eu/nixexprs.tar.gz") { };
 
-in pkgs.stdenv.mkDerivation rec {
+in pkgs.stdenv.mkDerivation {
   name = "Overview";
+
+  src = ./.;
+  LANG = "en_US.UTF-8";
 
   buildInputs = [
     pkgs.curl
@@ -15,7 +18,9 @@ in pkgs.stdenv.mkDerivation rec {
     mypkgs.make-xslt
   ];
 
-  shellHook = ''
-    export NIX_SHELL_NAME="${name}"
+  installPhase = ''
+    make-xslt
+    mkdir $out
+    cp -Lr target/99_result/* $out
   '';
 }
