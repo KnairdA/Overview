@@ -1,10 +1,13 @@
-body{font:1em sans-serif;color:#272828}
+@font-face{font-family:'Vollkorn';font-style:normal;src:local('Vollkorn Regular'), local('Vollkorn-Regular'), url(https://static.kummerlaender.eu/font/Vollkorn-Regular.woff2) format('woff2'), url(https://static.kummerlaender.eu/font/Vollkorn-Regular.woff) format('woff'), url(https://static.kummerlaender.eu/font/Vollkorn-Regular.ttf) format('truetype')}
+@font-face{font-family:'Vollkorn';font-style:italic;src:local('Vollkorn Italic'), local('Vollkorn-Italic'), url(https://static.kummerlaender.eu/font/Vollkorn-Italic.woff2) format('woff2'), url(https://static.kummerlaender.eu/font/Vollkorn-Italic.woff) format('woff'), url(https://static.kummerlaender.eu/font/Vollkorn-Italic.ttf) format('truetype')}
+@font-face{font-family:'Oswald Regular';font-style:normal;src:local('Oswald Regular'), url(https://static.kummerlaender.eu/font/Oswald-Regular.woff2) format('woff2'), url(https://static.kummerlaender.eu/font/Oswald-Regular.woff) format('woff'), url(https://static.kummerlaender.eu/font/Oswald-Regular.ttf) format('truetype')}
+body{font-size:1.1em;font-family:'Vollkorn',sans-serif;color:#272828}
 a{text-decoration:underline;color:#272828}
 a:hover{color:black}
-a.more{font-family:"Segoe UI Symbol",sons-serif}/*edge workaround*/
-h1, h2{margin:0;color:#272828;font-weight:bold}
+a.more{font-family:'Segoe UI Symbol',sans-serif}/*edge workaround*/
+h1, h2{font-family:'Oswald Regular',sans-serif;margin:0;color:#272828;font-weight:bold}
 h1 a, h2 a{text-decoration:none}
-h3{font-size:1.2em;color:#F80;font-weight:bold;margin-bottom:.2em;border-bottom:.1em solid #e3e8e8}
+h3{font-size:1.2em;font-family:'Oswald Regular',sans-serif;color:#F80;font-weight:bold;margin-bottom:.2em;border-bottom:.1em solid #e3e8e8}
 h3 span{font-size:0.9em;color:#272828;font-weight:normal}
 h3 a{text-decoration:none}
 p{margin:0 0 .5em 0;text-align:justify;line-height:1.75em}
@@ -18,13 +21,13 @@ sub{vertical-align:baseline;position:relative;top:0.4em}
 #introduction{margin-top:1.5em;overflow:hidden}
 #introduction img{border-radius:0.5em;margin-right:1.5em;float:left;width:12em;height:12em}
 #introduction p{width:31.5em;float:right}
-#introduction .greeting{font-size:1.3em;font-weight:bold;float:left;margin-right:0.5em}
-.info{font-size:.8em;margin-bottom:.5em;display:block}
+#introduction .greeting{font-family:'Oswald Regular',sans-serif;font-size:1.3em;font-weight:bold;float:left;margin-right:0.5em}
+.info{font-family:'Oswald Regular',sans-serif;font-size:.8em;margin-bottom:.5em;display:block}
 .info a{margin:0 .1em 0 .1em}
 .large{font-size:1.8em}
 .normal{font-size:1.2em}
-.menuhead{border-bottom:0.2em solid #e3e8e8;overflow:hidden;padding:0;margin-top:1.5em}
-.menuhead h1, .menuhead h2{float:left;font-size:1em;line-height:1.5em}
+.menuhead{font-family:'Oswald Regular',sans-serif;border-bottom:0.2em solid #e3e8e8;overflow:hidden;padding:0;margin-top:1.5em}
+.menuhead h1, .menuhead h2{float:left;font-size:1em;line-height:1.75em}
 .menuhead ul {float:right;padding:0 0 .1em 0}
 .menuhead ul li{font-size:.9em;float:left;list-style-type:none;padding:.2em .1em;margin:.1em;background:#e3e8e8;border-radius:.3em;line-height:1.2em}
 .menuhead ul li:first-child{margin-left:0}
