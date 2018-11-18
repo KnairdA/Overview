@@ -43,12 +43,12 @@
 	]"/>
 
 	<h3>
-		<xsl:text>» </xsl:text>
-		<span>
-			<a href="{$commit/link}">
-				<xsl:value-of select="$commit/title"/>
-			</a>
+		<span class="arrow">
+			<xsl:text>» </xsl:text>
 		</span>
+		<a href="{$commit/link}">
+			<xsl:value-of select="$commit/title"/>
+		</a>
 	</h3>
 
 	<span class="info">
@@ -82,12 +82,12 @@
 
 <xsl:template match="articles/entry">
 	<h3>
-		<xsl:text>» </xsl:text>
-		<span>
-			<a href="{link}">
-				<xsl:value-of select="title"/>
-			</a>
+		<span class="arrow">
+			<xsl:text>» </xsl:text>
 		</span>
+		<a href="{link}">
+			<xsl:value-of select="title"/>
+		</a>
 	</h3>
 
 	<span class="info">
@@ -146,7 +146,7 @@
 			<div id="introduction">
 				<img src="https://static.kummerlaender.eu/media/me_in_the_garden.jpeg"/>
 				<p>
-					<span class="greeting">Hi there!</span> My name is Adrian Kummerländer and I am a software developer currently studying mathematics in Karlsruhe. On these pages you will find <a href="https://blog.kummerlaender.eu">blog articles</a> covering amongst other topics some of my experiences in software development, open source and self hosting as well as <a href="https://code.kummerlaender.eu">repositories</a> and information on some of my personal <a href="https://tree.kummerlaender.eu/projects">projects</a>. If you have any comments or questions feel free to <a href="https://tree.kummerlaender.eu/contact">reach out</a>. I hope you will find something here worth your time.
+					<span class="greeting">Hi there!</span> My name is Adrian Kummerländer and I am a software developer currently studying mathematics in Karlsruhe. On these pages you will find <a href="https://blog.kummerlaender.eu">blog articles</a> covering amongst other topics some of my experiences in software development, open source and related tinkerings as well as <a href="https://code.kummerlaender.eu">repositories</a> and information on some of my personal <a href="https://tree.kummerlaender.eu/projects">projects</a>. If you have any comments or questions feel free to <a href="https://tree.kummerlaender.eu/contact">reach out</a>. I hope you will find something here worth your time.
 				</p>
 			</div>
 
