@@ -16,31 +16,27 @@
 
 <xsl:variable name="meta">
 	<datasource type="main"    mode="full" source="03_merge/timeline.xml"  target="timeline"/>
-	<datasource type="support" mode="full" source="02_augment/commits.xml" target="repositories"/>
 	<datasource type="support" mode="full" source="00_content/meta.xml"    target="meta"/>
 	<target     mode="plain"   value="timeline.xml"/>
 </xsl:variable>
 
 <xsl:variable name="root"   select="/datasource"/>
 <xsl:variable name="url"    select="concat($root/meta/url, '/timeline.xml')"/>
-<xsl:variable name="latest" select="$root/repositories/entry[
-	@handle = $root/timeline/commit[1]/@repository
-]/commit[
-	@hash   = $root/timeline/commit[1]/@hash
-]"/>
 
-<xsl:template match="repositories/entry/commit">
+<xsl:template match="timeline/entry">
+	<xsl:variable name="link" select="concat($root/meta/repository_base, '/', @repo, '/commits/?id=', @hash)"/>
+	
 	<entry xmlns="http://www.w3.org/2005/Atom">
 		<id>
-			<xsl:value-of select="link"/>
+			<xsl:value-of select="$link"/>
 		</id>
 		<title>
 			<xsl:value-of select="title"/>
 		</title>
-		<link rel="alternate" title="{title}" href="{link}"/>
+		<link rel="alternate" title="{title}" href="$link"/>
 		<author>
 			<name>
-				<xsl:value-of select="author"/>
+				<xsl:value-of select="$root/meta/author"/>
 			</name>
 		</author>
 		<updated>
@@ -51,7 +47,7 @@
 		</updated>
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
-				<xsl:apply-templates select="message/*" mode="xhtml"/>
+				<xsl:apply-templates select="content/*" mode="xhtml"/>
 			</div>
 		</content>
 	</entry>
@@ -69,25 +65,14 @@
 			<xsl:value-of select="$root/meta/title"/>
 		</title>
 		<updated>
-			<xsl:value-of select="$latest/date"/>
+			<xsl:value-of select="timeline/entry[1]/date"/>
 			<xsl:text>T</xsl:text>
-			<xsl:value-of select="$latest/date/@time"/>
+			<xsl:value-of select="timeline/entry[1]/date/@time"/>
 			<xsl:text>:00+02:00</xsl:text>
 		</updated>
 
-		<xsl:apply-templates select="timeline/commit[position() &lt;= $root/meta/timeline/commit_count]"/>
+		<xsl:apply-templates select="timeline/entry[position() &lt;= $root/meta/timeline/commit_count]"/>
 	</feed>
-</xsl:template>
-
-<xsl:template match="timeline/commit">
-	<xsl:variable name="repository" select="@repository"/>
-	<xsl:variable name="hash"       select="@hash"/>
-
-	<xsl:apply-templates select="$root/repositories/entry[
-		@handle = $repository
-	]/commit[
-		@hash = $hash
-	]"/>
 </xsl:template>
 
 </xsl:stylesheet>

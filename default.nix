@@ -7,11 +7,11 @@ pkgs.stdenv.mkDerivation {
   LANG = "en_US.UTF-8";
 
   buildInputs = [
-    pkgs.curl
     pkgs.pandoc
     pkgs.highlight
     mypkgs.katex-wrapper
     mypkgs.make-xslt
+    mypkgs.input-xslt
   ];
 
   installPhase = let

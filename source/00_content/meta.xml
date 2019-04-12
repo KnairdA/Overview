@@ -2,6 +2,8 @@
 <datasource>
 	<title>kummerlaender.eu</title>
 	<url>https://kummerlaender.eu</url>
+	<author>Adrian Kummerländer</author>
+	<description>Overview of kummerlaender.eu; blog and commit timeline aggregator</description>
 	<timeline>
 		<commit_count>32</commit_count>
 	</timeline>
@@ -9,4 +11,5 @@
 		<article_count>3</article_count>
 		<commit_count>16</commit_count>
 	</overview>
+	<repository_base>https://code.kummerlaender.eu</repository_base>
 </datasource>

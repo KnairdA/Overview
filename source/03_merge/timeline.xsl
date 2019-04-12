@@ -5,15 +5,20 @@
 >
 
 <xsl:include href="[utility/datasource.xsl]"/>
-<xsl:include href="[utility/reference_commit.xsl]"/>
 
 <xsl:variable name="meta">
-	<datasource type="main" mode="full" source="02_augment/commits.xml" target="repositories"/>
+	<datasource type="main" mode="full" source="01_raw/commits.xml" target="timeline"/>
 	<target     mode="plain" value="timeline.xml"/>
 </xsl:variable>
 
-<xsl:template match="repositories">
-	<xsl:apply-templates select="entry/commit[count(message//text()) &gt;= 6]" mode="commit">
+<xsl:template match="@* | node()" mode="commit">
+	<xsl:copy>
+		<xsl:apply-templates select="@* | node()" mode="commit"/>
+	</xsl:copy>
+</xsl:template>
+
+<xsl:template match="timeline">
+	<xsl:apply-templates select="entry" mode="commit">
 		<xsl:sort select="date"       data-type="text" order="descending"/>
 		<xsl:sort select="date/@time" data-type="text" order="descending"/>
 	</xsl:apply-templates>

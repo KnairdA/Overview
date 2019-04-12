@@ -21,63 +21,41 @@
 	<datasource type="main"    mode="full" source="00_content/meta.xml"         target="meta"/>
 	<datasource type="support" mode="full" source="02_augment/articles.xml"     target="articles"/>
 	<datasource type="support" mode="full" source="03_merge/timeline.xml"       target="timeline"/>
-	<datasource type="support" mode="full" source="02_augment/commits.xml"      target="commits"/>
-	<datasource type="support" mode="full" source="00_content/repositories.xml" target="repositories"/>
 	<target     mode="plain"   value="index.html"/>
 </xsl:variable>
 
 <xsl:variable name="root" select="/datasource"/>
 
-<xsl:template name="get_commit">
-	<xsl:param name="repository"/>
-	<xsl:param name="hash"/>
-
-	<xsl:variable name="commit" select="$root/commits/entry[
-		@handle = $repository
-	]/commit[
-		@hash = $hash
-	]"/>
-
-	<xsl:variable name="project" select="$root/repositories/entry[
-		@handle = $repository
-	]"/>
-
+<xsl:template match="timeline/entry">
 	<h3>
 		<span class="arrow">
 			<xsl:text>» </xsl:text>
 		</span>
-		<a href="{$commit/link}">
-			<xsl:value-of select="$commit/title"/>
+		<a href="{$root/meta/repository_base}/{@repo}/commit/?id={@hash}">
+			<xsl:value-of select="title"/>
 		</a>
 	</h3>
 
 	<span class="info">
 		<xsl:call-template name="format-date">
-			<xsl:with-param name="date" select="$commit/date"/>
+			<xsl:with-param name="date" select="date"/>
 			<xsl:with-param name="format" select="'M x, Y'"/>
 		</xsl:call-template>
 		<xsl:text> at </xsl:text>
-			<xsl:value-of select="$commit/date/@time"/>
+			<xsl:value-of select="date/@time"/>
 		<xsl:text> | </xsl:text>
-		<a href="{$project/url}">
-			<xsl:value-of select="$repository"/>
+		<a href="{$root/meta/repository_base}/{@repo}/">
+			<xsl:value-of select="@repo"/>
 		</a>
 		<xsl:text> | </xsl:text>
-		<a href="{$commit/link}">
-			<xsl:value-of select="$commit/@hash"/>
+		<a href="{$root/meta/repository_base}/{@repo}/commit/?id={@hash}">
+			<xsl:value-of select="substring(@hash,0,7)"/>
 		</a>
 		<xsl:text> | </xsl:text>
-		<xsl:value-of select="$commit/author"/>
+		<xsl:value-of select="$root/meta/author"/>
 	</span>
 
-	<xsl:apply-templates select="$commit/message/node()" mode="xhtml"/>
-</xsl:template>
-
-<xsl:template match="timeline/commit">
-	<xsl:call-template name="get_commit">
-		<xsl:with-param name="repository" select="@repository"/>
-		<xsl:with-param name="hash"       select="@hash"/>
-	</xsl:call-template>
+	<xsl:apply-templates select="content/node()" mode="xhtml"/>
 </xsl:template>
 
 <xsl:template match="articles/entry">
@@ -113,8 +91,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<meta name="author"      content="Adrian Kummerländer"/>
-		<meta name="description" content="Overview of kummerlaender.eu; blog and commit timeline aggregator"/>
+		<meta name="author"      content="{$root/meta/author}"/>
+		<meta name="description" content="{$root/meta/description}"/>
 		<meta name="viewport"    content="width=device-width,initial-scale=1.0"/>
 
 		<title>
@@ -170,7 +148,7 @@
 
 			<div class="normal menuhead">
 				<h2>
-					<a href="https://code.kummerlaender.eu">
+					<a href="{$root/meta/repository_base}">
 						<xsl:text>Selected commits</xsl:text>
 					</a>
 				</h2>
@@ -187,7 +165,7 @@
 				</ul>
 			</div>
 
-			<xsl:apply-templates select="timeline/commit[position() &lt;= $root/meta/overview/commit_count]"/>
+			<xsl:apply-templates select="timeline/entry[position() &lt;= $root/meta/overview/commit_count]"/>
 		</div>
 	</body>
 </html>
