@@ -1,10 +1,6 @@
-{ system ? builtins.currentSystem }:
+{ pkgs ? import <nixpkgs> { }, mypkgs ? import <mypkgs> { }, ... }:
 
-let
-  pkgs    = import <nixpkgs> { inherit system; };
-  mypkgs  = import (fetchTarball "https://pkgs.kummerlaender.eu/nixexprs.tar.gz") { };
-
-in pkgs.stdenv.mkDerivation {
+pkgs.stdenv.mkDerivation {
   name = "Overview";
 
   src = ./.;
@@ -18,7 +14,13 @@ in pkgs.stdenv.mkDerivation {
     mypkgs.make-xslt
   ];
 
-  installPhase = ''
+  installPhase = let
+    blog_feed = builtins.fetchurl {
+      url = "https://blog.kummerlaender.eu/atom.xml";
+    };
+  in ''
+    cp ${blog_feed} source/00_content/article_feed.xml
+
     make-xslt
     mkdir $out
     cp -Lr target/99_result/* $out
