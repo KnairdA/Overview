@@ -28,6 +28,7 @@ sub{vertical-align:baseline;position:relative;top:0.4em}
 #introduction img{border-radius:0.5em;margin-right:1.5em;float:left;width:12em;height:12em}
 #introduction p{width:31.5em;float:right}
 #introduction .greeting{font:bold 1.1em 'Oswald',sans-serif;display:inline-block}
+#content img{padding:.2em;border:.1em solid #e3e8e8;display:block;margin-left:auto;margin-right:auto;max-width:95%}
 
 .info{font:normal .8em 'Oswald',sans-serif;margin-bottom:.5em;display:block}
 .info a{margin:0 .1em 0 .1em}

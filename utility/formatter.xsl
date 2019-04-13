@@ -18,6 +18,23 @@
 	)/self::command/node()"/>
 </xsl:template>
 
+<xsl:template name="math_highlighter">
+	<xsl:param name="source"/>
+	<xsl:param name="arguments"/>
+
+	<xsl:variable name="formatted_expression">
+		<xsl:call-template name="plain_formatter">
+			<xsl:with-param name="format">
+				<xsl:text>katex </xsl:text>
+				<xsl:value-of select="$arguments"/>
+			</xsl:with-param>
+			<xsl:with-param name="source" select="$source"/>
+		</xsl:call-template>
+	</xsl:variable>
+
+	<xsl:copy-of select="xalan:nodeset($formatted_expression)/node()"/>
+</xsl:template>
+
 <xsl:template name="code_highlighter">
 	<xsl:param name="source"/>
 	<xsl:param name="language"/>
@@ -43,6 +60,18 @@
 	</xsl:copy>
 </xsl:template>
 
+<xsl:template match="h2" mode="embellish">
+	<h3>
+		<xsl:apply-templates select="node()" mode="embellish"/>
+	</h3>
+</xsl:template>
+
+<xsl:template match="h3" mode="embellish">
+	<h4>
+		<xsl:apply-templates select="node()" mode="embellish"/>
+	</h4>
+</xsl:template>
+
 <xsl:template match="pre" mode="embellish">
 	<xsl:call-template name="code_highlighter">
 		<xsl:with-param name="source" select="code/text()"/>
@@ -59,12 +88,48 @@
 	</xsl:call-template>
 </xsl:template>
 
+<xsl:template match="div[@class = 'figure']" mode="embellish">
+	<p>
+		<xsl:apply-templates select="img" mode="embellish"/>
+	</p>
+</xsl:template>
+
+<xsl:template match="div[@class = 'footnotes']/hr" mode="embellish"/>
+
+<xsl:template match="div[@class = 'footnotes']//a[contains(@href, '#fnref')]" mode="embellish">
+	<a href="{@href}" class="more">
+		<xsl:apply-templates select="node()" mode="embellish"/>
+	</a>
+</xsl:template>
+
+<xsl:template match="span[contains(@class, 'math')]" mode="embellish">
+	<xsl:choose>
+		<xsl:when test="contains(@class, 'display')">
+			<p class="math">
+				<xsl:call-template name="math_highlighter">
+					<xsl:with-param name="source" select="substring(text(),3,string-length(text())-4)"/>
+					<xsl:with-param name="arguments">
+						<xsl:text>--display-mode</xsl:text>
+					</xsl:with-param>
+				</xsl:call-template>
+			</p>
+		</xsl:when>
+		<xsl:otherwise>
+			<span class="math">
+				<xsl:call-template name="math_highlighter">
+					<xsl:with-param name="source" select="substring(text(),3,string-length(text())-4)"/>
+				</xsl:call-template>
+			</span>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
 <xsl:template name="formatter">
 	<xsl:param name="source"/>
 
 	<xsl:variable name="content">
 		<xsl:call-template name="plain_formatter">
-			<xsl:with-param name="format">pandoc -f markdown -t html --no-highlight</xsl:with-param>
+			<xsl:with-param name="format">pandoc -f markdown -t html4 --katex --no-highlight -fmarkdown-implicit_figures</xsl:with-param>
 			<xsl:with-param name="source" select="$source"/>
 		</xsl:call-template>
 	</xsl:variable>
