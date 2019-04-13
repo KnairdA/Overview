@@ -7,7 +7,7 @@
 <xsl:include href="[utility/datasource.xsl]"/>
 
 <xsl:variable name="meta">
-	<datasource type="main"  mode="full" source="01_raw/article_feed.xml" target="articles"/>
+	<datasource type="main"  mode="full" source="01_raw/blog_feed.xml" target="articles"/>
 	<target     mode="plain" value="articles.xml"/>
 </xsl:variable>
 

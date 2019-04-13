@@ -18,9 +18,9 @@
 <xsl:include href="[utility/date-time.xsl]"/>
 
 <xsl:variable name="meta">
-	<datasource type="main"    mode="full" source="00_content/meta.xml"         target="meta"/>
-	<datasource type="support" mode="full" source="02_augment/articles.xml"     target="articles"/>
-	<datasource type="support" mode="full" source="03_merge/timeline.xml"       target="timeline"/>
+	<datasource type="main"    mode="full" source="00_content/meta.xml"      target="meta"/>
+	<datasource type="support" mode="full" source="02_augment/articles.xml"  target="articles"/>
+	<datasource type="support" mode="full" source="02_augment/blips.xml"     target="timeline"/>
 	<target     mode="plain"   value="index.html"/>
 </xsl:variable>
 
@@ -31,7 +31,7 @@
 		<span class="arrow">
 			<xsl:text>» </xsl:text>
 		</span>
-		<a href="{$root/meta/repository_base}/{@repo}/commit/?id={@hash}">
+		<a href="{link}">
 			<xsl:value-of select="title"/>
 		</a>
 	</h3>
@@ -41,18 +41,8 @@
 			<xsl:with-param name="date" select="date"/>
 			<xsl:with-param name="format" select="'M x, Y'"/>
 		</xsl:call-template>
-		<xsl:text> at </xsl:text>
-			<xsl:value-of select="date/@time"/>
 		<xsl:text> | </xsl:text>
-		<a href="{$root/meta/repository_base}/{@repo}/">
-			<xsl:value-of select="@repo"/>
-		</a>
-		<xsl:text> | </xsl:text>
-		<a href="{$root/meta/repository_base}/{@repo}/commit/?id={@hash}">
-			<xsl:value-of select="substring(@hash,0,7)"/>
-		</a>
-		<xsl:text> | </xsl:text>
-		<xsl:value-of select="$root/meta/author"/>
+		<xsl:value-of select="author"/>
 	</span>
 
 	<xsl:apply-templates select="content/node()" mode="xhtml"/>
@@ -148,7 +138,7 @@
 
 			<div class="normal menuhead">
 				<h2>
-					<a href="{$root/meta/repository_base}">
+					<a href="https://blip.kummerlaender.eu">
 						<xsl:text>Selected commits</xsl:text>
 					</a>
 				</h2>
@@ -160,12 +150,12 @@
 						<a href="https://tree.kummerlaender.eu/projects">Projects</a>
 					</li>
 					<li>
-						<a href="{$root/meta/url}/timeline.xml">Feed</a>
+						<a href="https://blip.kummerlaender.eu/timeline.xml">Feed</a>
 					</li>
 				</ul>
 			</div>
 
-			<xsl:apply-templates select="timeline/entry[position() &lt;= $root/meta/overview/commit_count]"/>
+			<xsl:apply-templates select="timeline/entry"/>
 		</div>
 	</body>
 </html>

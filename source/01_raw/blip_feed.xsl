@@ -10,13 +10,13 @@
 <xsl:include href="[utility/remove_namespace.xsl]"/>
 
 <xsl:variable name="meta">
-	<datasource type="main"    mode="full" source="00_content/article_feed.xml" target="feed"/>
+	<datasource type="main"    mode="full" source="00_content/blip_feed.xml" target="feed"/>
 	<datasource type="support" mode="full" source="00_content/meta.xml" target="meta"/>
-	<target     mode="plain" value="article_feed.xml"/>
+	<target     mode="plain" value="blip_feed.xml"/>
 </xsl:variable>
 
 <xsl:template match="feed">
-	<xsl:apply-templates mode="remove_namespace" select="entry[position() &lt;= $root/meta/overview/article_count]"/>
+	<xsl:apply-templates mode="remove_namespace" select="entry[position() &lt;= $root/meta/overview/blip_count]"/>
 </xsl:template>
 
 </xsl:stylesheet>

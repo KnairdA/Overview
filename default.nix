@@ -11,15 +11,18 @@ pkgs.stdenv.mkDerivation {
     pkgs.highlight
     mypkgs.katex-wrapper
     mypkgs.make-xslt
-    mypkgs.input-xslt
   ];
 
   installPhase = let
     blog_feed = builtins.fetchurl {
       url = "https://blog.kummerlaender.eu/atom.xml";
     };
+    blip_feed = builtins.fetchurl {
+      url = "https://blip.kummerlaender.eu/timeline.xml";
+    };
   in ''
-    cp ${blog_feed} source/00_content/article_feed.xml
+    cp ${blog_feed} source/00_content/blog_feed.xml
+    cp ${blip_feed} source/00_content/blip_feed.xml
 
     make-xslt
     mkdir $out

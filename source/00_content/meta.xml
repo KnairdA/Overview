@@ -3,13 +3,9 @@
 	<title>kummerlaender.eu</title>
 	<url>https://kummerlaender.eu</url>
 	<author>Adrian Kummerländer</author>
-	<description>Overview of kummerlaender.eu; blog and commit timeline aggregator</description>
-	<timeline>
-		<commit_count>32</commit_count>
-	</timeline>
+	<description>Overview of *.kummerlaender.eu</description>
 	<overview>
 		<article_count>3</article_count>
-		<commit_count>16</commit_count>
+		<blip_count>6</blip_count>
 	</overview>
-	<repository_base>https://code.kummerlaender.eu</repository_base>
 </datasource>
