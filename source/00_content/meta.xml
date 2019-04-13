@@ -4,8 +4,9 @@
 	<url>https://kummerlaender.eu</url>
 	<author>Adrian Kummerländer</author>
 	<description>Overview of *.kummerlaender.eu</description>
-	<overview>
-		<article_count>3</article_count>
-		<blip_count>6</blip_count>
-	</overview>
+	<limits>
+		<articles>3</articles>
+		<blips>6</blips>
+	</limits>
+	<repository_base>https://code.kummerlaender.eu</repository_base>
 </datasource>

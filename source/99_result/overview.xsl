@@ -20,7 +20,7 @@
 <xsl:variable name="meta">
 	<datasource type="main"    mode="full" source="00_content/meta.xml"      target="meta"/>
 	<datasource type="support" mode="full" source="02_augment/articles.xml"  target="articles"/>
-	<datasource type="support" mode="full" source="02_augment/blips.xml"     target="timeline"/>
+	<datasource type="support" mode="full" source="00_content/blip_feed.xml" target="timeline"/>
 	<target     mode="plain"   value="index.html"/>
 </xsl:variable>
 
@@ -31,7 +31,7 @@
 		<span class="arrow">
 			<xsl:text>» </xsl:text>
 		</span>
-		<a href="{link}">
+		<a href="{$root/meta/repository_base}/{@repo}/commit/?id={@hash}">
 			<xsl:value-of select="title"/>
 		</a>
 	</h3>
@@ -41,8 +41,18 @@
 			<xsl:with-param name="date" select="date"/>
 			<xsl:with-param name="format" select="'M x, Y'"/>
 		</xsl:call-template>
+		<xsl:text> at </xsl:text>
+			<xsl:value-of select="date/@time"/>
 		<xsl:text> | </xsl:text>
-		<xsl:value-of select="author"/>
+		<a href="{$root/meta/repository_base}/{@repo}/">
+			<xsl:value-of select="@repo"/>
+		</a>
+		<xsl:text> | </xsl:text>
+		<a href="{$root/meta/repository_base}/{@repo}/commit/?id={@hash}">
+			<xsl:value-of select="substring(@hash,0,7)"/>
+		</a>
+		<xsl:text> | </xsl:text>
+		<xsl:value-of select="$root/meta/author"/>
 	</span>
 
 	<xsl:apply-templates select="content/node()" mode="xhtml"/>
@@ -144,18 +154,15 @@
 				</h2>
 				<ul>
 					<li>
-						<a href="https://github.com/KnairdA">GitHub</a>
-					</li>
-					<li>
 						<a href="https://tree.kummerlaender.eu/projects">Projects</a>
 					</li>
 					<li>
-						<a href="https://blip.kummerlaender.eu/timeline.xml">Feed</a>
+						<a href="https://blip.kummerlaender.eu/atom.xml">Feed</a>
 					</li>
 				</ul>
 			</div>
 
-			<xsl:apply-templates select="timeline/entry"/>
+			<xsl:apply-templates select="timeline/entry[position() &lt;= $root/meta/limits/blips]"/>
 		</div>
 	</body>
 </html>

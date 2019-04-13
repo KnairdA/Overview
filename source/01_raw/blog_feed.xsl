@@ -16,7 +16,7 @@
 </xsl:variable>
 
 <xsl:template match="feed">
-	<xsl:apply-templates mode="remove_namespace" select="entry[position() &lt;= $root/meta/overview/article_count]"/>
+	<xsl:apply-templates mode="remove_namespace" select="entry[position() &lt;= $root/meta/limits/articles]"/>
 </xsl:template>
 
 </xsl:stylesheet>
