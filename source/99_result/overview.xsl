@@ -101,6 +101,10 @@
 
 		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="stylesheet"    type="text/css"     href="/main.css"/>
+
+		<xsl:if test="//*[(self::p or self::span) and @class = 'math']">
+			<link rel="stylesheet" type="text/css" href="https://static.kummerlaender.eu/katex/katex.min.css" />
+		</xsl:if>
 	</head>
 	<body>
 		<div id="content">
