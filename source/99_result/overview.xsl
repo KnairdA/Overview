@@ -26,7 +26,36 @@
 
 <xsl:variable name="root" select="/datasource"/>
 
-<xsl:template match="timeline/entry">
+<xsl:template match="articles/entry">
+	<h3>
+		<span class="arrow">
+			<xsl:text>» </xsl:text>
+		</span>
+		<a href="{link}">
+			<xsl:value-of select="title"/>
+		</a>
+	</h3>
+
+	<span class="info">
+		<xsl:call-template name="format-date">
+			<xsl:with-param name="date" select="date"/>
+			<xsl:with-param name="format" select="'M x, Y'"/>
+		</xsl:call-template>
+		<xsl:text> | </xsl:text>
+		<xsl:value-of select="author"/>
+	</span>
+
+	<p>
+		<xsl:apply-templates select="content/node()" mode="xhtml"/>
+		<xsl:text> </xsl:text>
+
+		<a class="more" href="{link}">
+			<xsl:text>↪</xsl:text>
+		</a>
+	</p>
+</xsl:template>
+
+<xsl:template match="timeline/entry[@type='commit']">
 	<h3>
 		<span class="arrow">
 			<xsl:text>» </xsl:text>
@@ -58,12 +87,12 @@
 	<xsl:apply-templates select="content/node()" mode="xhtml"/>
 </xsl:template>
 
-<xsl:template match="articles/entry">
+<xsl:template match="timeline/entry[@type='unstructured']">
 	<h3>
 		<span class="arrow">
 			<xsl:text>» </xsl:text>
 		</span>
-		<a href="{link}">
+		<a href="{title/@href}">
 			<xsl:value-of select="title"/>
 		</a>
 	</h3>
@@ -73,18 +102,13 @@
 			<xsl:with-param name="date" select="date"/>
 			<xsl:with-param name="format" select="'M x, Y'"/>
 		</xsl:call-template>
+		<xsl:text> at </xsl:text>
+			<xsl:value-of select="date/@time"/>
 		<xsl:text> | </xsl:text>
-		<xsl:value-of select="author"/>
+		<xsl:value-of select="$root/meta/author"/>
 	</span>
 
-	<p>
-		<xsl:apply-templates select="content/node()" mode="xhtml"/>
-		<xsl:text> </xsl:text>
-
-		<a class="more" href="{link}">
-			<xsl:text>↪</xsl:text>
-		</a>
-	</p>
+	<xsl:apply-templates select="content/node()" mode="xhtml"/>
 </xsl:template>
 
 <xsl:template match="datasource">
