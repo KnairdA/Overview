@@ -27,8 +27,8 @@ sub{vertical-align:baseline;position:relative;top:0.4em}
 #content p img{padding:.2em;border:.1em solid #e3e8e8;display:block;margin-left:auto;margin-right:auto;max-width:95%}
 
 #introduction{margin-top:1.5em;overflow:hidden}
-#introduction img{border-radius:0.5em;margin-right:1.5em;float:left;width:12em;height:12em}
-#introduction p{width:31.5em;float:right}
+#introduction img{border-radius:0.5em;margin-right:1em;float:left;width:13em;height:13em}
+#introduction p{width:30.5em;float:right}
 #introduction .greeting{font:bold 1.1em 'Oswald',sans-serif;display:inline-block}
 
 .info{font:normal .8em 'Oswald',sans-serif;margin-bottom:.5em;display:block}
