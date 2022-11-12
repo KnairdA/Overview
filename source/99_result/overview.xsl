@@ -150,7 +150,7 @@
 			</div>
 
 			<div id="introduction">
-				<img src="https://static.kummerlaender.eu/media/me_in_the_mountains_square.jpg"/>
+				<img src="https://static.kummerlaender.eu/media/me_in_the_highlands_square.jpg"/>
 				<p>
 					<span class="greeting">Hi there!</span> My name is Adrian Kummerländer.
 						I am a software developer by vocation and a mathematician by degree, currently pursuing a doctorate at <a href="https://www.lbrg.kit.edu/">LBRG</a> in the intersection between HPC and LBM.
